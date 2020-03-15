@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+   <link rel="stylesheet" type="text/css"
+   href="urbain_style.css">
+<title>Programmation fonctionnelle : TP 3</title>
+</head>
+
+<body>
+<name>Programmation fonctionnelle : TP 3</name>
+
+<h3>On commence doucement pour &eacute;viter un claquage</h3>
+<p>
+&Eacute;crire une fonction r&eacute;cursive <tt>nbbase: int -> int ->
+int</tt> telle que <tt>nbbase b n</tt> retourne le nombre de chiffres
+n&eacute;cessaires &agrave; l'&eacute;criture de <tt>n</tt> en base
+<tt>b</tt>.
+</p>
+
+<h3>Listes d'objets de type <tt>int</tt></h3>
+<p>
+On consid&egrave;re ici des listes d'objets de type <tt>int</tt>.
+<ul>
+    <li> D&eacute;finir un type <tt>iliste</tt> pour les listes d'objets
+    de type <tt>int</tt>.
+    <li> &Eacute;crire une fonction <tt>ajoute: int -> iliste ->
+    iliste</tt> telle que <tt>ajoute n l<tt> retourne une liste
+    correspondant &agrave; l'ajout de l'&eacute;l&eacute;ment
+    <tt>n</tt> &agrave; la liste <tt>l</tt>.
+    <li> &Eacute;crire une fonction <tt>recherche: int -> iliste ->
+    bool</tt> telle que <tt>recherche n l</tt> retourne <tt>true</tt>
+    si un &eacute;l&eacute;ment <tt>n</tt> appartient &agrave; la
+    liste <tt>l</tt>, et <tt>false</tt> sinon.
+    <li> &Eacute;crire une fonction <tt>il_existe_pair: iliste ->
+    bool<tt>, telle que <tt>il_existe_pair l</tt> retourne
+    <tt>true</tt> si un &eacute;l&eacute;ment de <tt>l</tt> est pair,
+    et <tt>false</tt> sinon.
+    <li> &Eacute;crire une fonction <tt>supprime: int -> iliste ->
+    iliste</tt> telle que <tt>supprime n l</tt> retourne une liste
+    d'objets de type <tt>int</tt> correspondant &agrave; <tt>l</tt> 
+    sans la premi&egrave;re occurrence de <tt>n</tt> (le cas 
+    &eacute;ch&eacute;ant), et &agrave; <tt>l</tt> sinon.
+    <li> &Eacute;crire une fonction <tt>supprime_tout: int -> iliste
+    -> iliste</tt> telle que <tt>supprime_tout n l</tt> retourne une
+    liste correspondant &agrave; <tt>l</tt> sans occurrence <tt>n</tt>.
+</ul>
+</p>
+
+<h3>Listes polymorphes</h3>
+<p>
+On utilise &agrave; pr&eacute;sent des listes polymorphes
+(d&eacute;finir le type <tt>liste</tt> des listes polymorphes).
+
+<ul>
+    <li> Adapter une des fonctions pr&eacute;c&eacute;dentes et la
+    tester avec deux types diff&eacute;rents.
+    <li> &Eacute;crire une fonction <tt>inverse: 'a liste -> 'a
+    liste</tt>, qui retourne une liste correspondant &agrave; son
+    argument dans l'ordre inverse. Dans un premier temps, on pourra
+    utiliser la fonction de concat&eacute;nation vue en cours.
+    <li> &Eacute;crire la fonction <tt>il_existe: ('a -> bool) -> 'a
+    liste -> bool</tt>, telle que <tt>il_existe p l</tt> retourne
+    <tt>true</tt> si un &eacute;l&eacute;ment de <tt>l</tt>
+    v&eacute;rifie le pr&eacute;dicat <tt>p</tt>, et <tt>false</tt>
+    sinon.
+</ul>
+</p>
+
+
+<h3>Manipulation de listes</h3>
+<h4>Listes d'associations</h4>
+<p>
+On travaille maintenant sur des listes de couples associant des objets
+de type <tt>'a</tt> &agrave; des objets de type <tt>'b</tt>.
+
+<ul>
+  <li> &Eacute;crire une fonction <tt>recherche_k: 'a -> ('a * 'b) list
+  -> 'b<tt>, qui retourne le premier objet de type <tt>'b</tt>
+  associ&eacute; &agrave; une cl&eacute; <tt>k</tt> de type <tt>'a</tt>.
+  <li> &Eacute;crire une fonction <tt>recherche_k': 'a -> ('a * 'b)
+  list -> 'b list<tt>, qui retourne la liste de tous les objets de type
+  <tt>'b</tt> associ&eacute;s &agrave; une cl&eacute; <tt>k</tt> de
+  type <tt>'a</tt>.
+</ul>
+</p>
+
+<h4>Minimum et maximum d'une liste</h4>
+<p>
+On cherche &agrave; calculer simultan&eacute;ment le minimum et le
+maximum d'une liste d'entiers.
+
+<ul>
+  <li> &Eacute;crire une fonction r&eacute;cursive <tt>maximum: int
+  list -> int</tt>, qui retourne le plus grand entier de la liste en
+  argument. On conviendra de retourner <tt>min_int</tt> si la liste est
+  vide.
+  <li> &Eacute;crire une variante de la fonction
+  pr&eacute;c&eacute;dente, bas&eacute;e sur un parcours de liste.
+  <li> &Eacute;crire une fonction <tt>min_max: int list -> int *
+  int</tt>, qui retourne un couple compos&eacute; du plus petit et du
+  plus grand entier de la liste pass&eacute;e en argument. On
+  conviendra de retourner <tt>(max_int, min_int)</tt> si la liste est
+  vide.
+</ul>
+</p>
+
+<h4>Minimum et maximum d'une liste, avec moins de comparaisons</h4>
+<p>
+Pour diminuer le nombre de comparaisons &agrave; effectuer, on propose
+de :
+<ol>
+    <li> Regrouper les &eacute;l&eacute;ments en couples,
+    <li> Trier chaque couple pour mettre le plus petit
+    &eacute;l&eacute;ment en premier,
+    <li> Chercher le minimum parmi les plus petits de chaque couple, et
+    le maximum parmi les plus grands de chaque couple.
+</ol>
+
+<ul>
+    <li> &Eacute;crire une fonction <tt>grouper: int list -> (int *
+    int) list</tt>, qui retourne la liste des couples form&eacute;s
+    &agrave; partir de la liste de d&eacute;part.
+
+    Si la liste a un nombre impair d'&eacute;l&eacute;ments, on
+    utilisera le dernier &eacute;l&eacute;ment deux fois.
+  <dl>
+    <dt>
+      Ainsi, pour la liste
+    </dt>
+    <dd>
+      <tt>5 :: 1 :: 6 :: 8 :: []</tt>
+    </dd>
+    <dt>
+      la fonction retournera la liste
+    </dt>
+    <dd>
+      <tt>(5, 1) :: (6, 8) :: []</tt>,
+    </dd>
+    <dt>
+      alors que pour la liste
+    </dt>
+    <dd>
+      <tt>5 :: 1 :: 6 :: 8 :: 3 :: []</tt>
+    </dd>
+    <dt>
+      le r&eacute;sultat sera
+    </dt>
+    <dd>
+      <tt>(5, 1) :: (6, 8) :: (3, 3) :: []</tt>.
+    </dd>
+  </dl>
+    <li> &Eacute;crire une fonction <tt>trier_couples: (int * int) list
+    -> (int * int) list</tt>, telle que <tt>trier_couples l</tt>
+    retourne la liste form&eacute;es des couples contenus dans
+    <tt>l</tt> une fois tri&eacute;s.
+    <li> &Eacute;crire une variante <tt>min_max': int list -> int *
+    int</tt> de la fonction <tt>min_max</tt>, en utilisant ce qui
+    pr&eacute;c&egrave;de.
+</ul>
+</p>
+
+<hr>
+<address></address>
+</body> </html>

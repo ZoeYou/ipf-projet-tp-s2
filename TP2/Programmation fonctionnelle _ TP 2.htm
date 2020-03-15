@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<!-- saved from url=(0042)http://web4.ensiie.fr/~forest/IPF/tp2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <link rel="stylesheet" type="text/css" href="./Programmation fonctionnelle _ TP 2_files/urbain_style.css">
+<title>Programmation fonctionnelle : TP 2</title>
+</head>
+
+<body>
+<name>Programmation fonctionnelle : TP 2</name>
+<h3>Compléments de syntaxe</h3>
+
+<p>
+Comme nous l'avons vu au précédent TP, les entiers sont
+très différents des flottants. Il est cependant possible
+de convertir certains types de base en d'autres à l'aide de
+fonctions prédéfinies.
+</p><ul>
+  
+  <li> <tt> float_of_int : int -&gt; float</tt> prend un entier en
+  paramètre et retourne le flottant correspondant. Par exemple,
+  <tt>float_of_int 0</tt> retourne <tt>0.</tt> .
+  
+  </li><li> <tt>int_of_float : float -&gt; int</tt> retourne la troncature
+  du flottant passé en paramètre. Par exemple,
+  <tt>int_of_float 3.2</tt> retourne <tt>3</tt> et <tt>int_of_float
+  -3.2</tt> retourne <tt>-3</tt> .
+
+  </li><li> <tt> string_of_int : float -&gt; string</tt> (resp.
+  <tt>string_of_float : float -&gt; string</tt>) prend un entier
+  (resp. un flottant) en paramètre et retourne la
+  chaîne correspondante. Par exemple, <tt>string_of_float
+  3.2</tt> retourne la valeur <tt>"3.2"</tt> . 
+
+  </li><li> <tt>int_of_string : string -&gt; int</tt> (resp.
+  <tt>float_of_string : string -&gt; float</tt>) retourne l'entier
+  (resp. le flottant) correspondant à la chaîne de
+  caractères passée en paramètre. Une erreur
+  survient si la chaîne ne correspond pas à un entier
+  (resp. un flottant). Par exemple, <tt>int_of_string
+  "3"</tt> retourne <tt>3</tt> mais <tt>int_of_string
+  "toto"</tt> retourne une erreur.
+</li></ul>
+<p></p>
+
+<p>
+Il existe d'autres fonctions de conversion. De manière
+  générale, les spécifications
+  détaillées de toute la bibliothèque standard
+  Ocaml sont accessibles depuis la page <a href="http://caml.inria.fr/">http://caml.inria.fr</a>. 
+</p>
+
+<h3>Enregistrements et couples</h3>
+<p>
+Un rationnel <tt>p/q</tt> peut être représenté
+à l'aide d'un enregistrement ou d'un couple.
+</p><ul>
+  <li> Proposer un type pour les rationnels en utilisant des
+  enregistrements.
+  </li><li> Écrire une fonction réalisant l'addition de deux
+  rationnels (sans chercher à réduire la fraction
+  obtenue).
+  </li><li> Proposer un type pour les rationnels en utilisant les couples.
+  </li><li> Écrire une fonction réalisant l'addition de deux
+  rationnels (sans chercher à réduire la fraction
+  obtenue).
+</li></ul>
+<p></p>
+
+<h3>Types sommes et types énumérés</h3>
+<h4>Mixité entiers/flottants</h4>
+<p>
+Les entiers (au sens <tt>int</tt>) sont
+très différents des flottants mais les
+définitions de type nous permettent cependant de les
+manipuler en un seul type.
+
+</p><ul>
+  <li> Définir le type <tt>nombre</tt> (un <tt>nombre</tt> est
+  soit un entier, soit un flottant).
+  </li><li> Proposer des fonctions permettant d'additionner,
+  de soustraire, de multiplier et de diviser deux nombres.
+  </li><li> Proposer une fonction permettant de tester si un nombre est plus
+  petit qu'un autre.
+</li></ul>
+<p></p>
+
+<h4>Money (money money...)</h4>
+<p>
+</p><ul>
+  <li> Définir un type énuméré
+  <tt>monnaie</tt> permettant de décrire pour les euros les
+  pièces (1 centime, 2 centimes, 5 centimes, 10 centimes, 20
+  centimes, 50 centimes, 1 euro, 2 euros) et les billets (5 euros, 10
+  euros, 20 euros et 50 euros).
+  
+  </li><li> Proposer une fonction qui, étant donné un
+  élément <tt>m</tt> de type <tt>monnaie</tt>, retourne
+  <tt>true</tt> s'il s'agit d'un billet et <tt>false</tt> sinon.
+  </li><li> Proposer une fonction qui, étant donnés un entier
+  <tt>s</tt> représentant une certaine somme et un
+  élément <tt>m</tt> de type <tt>monnaie</tt>, permet de
+  trouver combien d'éléments <tt>m</tt>
+  sont nécessaires pour atteindre la somme <tt>s</tt> en
+  question. Par exemple, pour atteindre 270 euros avec des billets de
+  50 euros, il faut 6 billets tandis qu'avec des billets de 10 euros,
+  il en faut 27.  
+</li></ul>
+<p></p>
+
+<h3>Fonctions récursives</h3>
+<h4>Étude du calcul d'une puissance</h4>
+<p>
+</p><ul>
+  <li>Proposer une fonction, qui étant donnés deux entiers
+  <tt>x</tt> et <tt>p (p &gt; 0)</tt>, retourne l'entier
+  <tt>x<sup>p</sup></tt> en utilisant l'équation
+  <dl>
+    <dt>
+      <tt>&#8704; x, &nbsp; x<sup>0</sup> = 1</tt>
+    </dt>
+    <dt>
+      <tt>&#8704; x, &#8704; p &gt; 0, &nbsp; x<sup>p</sup> =
+      x × x<sup>(p-1)</sup></tt>
+    </dt>
+  </dl>
+  </li><li> Tester cette fonction sur différentes valeurs de
+  <tt>x</tt> et <tt>p</tt>, dont au moins une grande valeur pour
+  <tt>p</tt> (<tt>p &gt; 300000</tt>).
+  </li><li> Proposer une fonction, qui étant donnés deux entiers
+  <tt>x</tt> et <tt>p</tt>, retourne l'entier <tt>x<sup>p</sup></tt>
+  en utilisant l'équation
+  <dl>
+    <dt>
+      <tt>&#8704; x, &nbsp; x<sup>0</sup> = 1</tt>
+    </dt> 
+    <dt>
+      <tt>&#8704; x, &#8704; p &gt; 0, p pair, &nbsp;
+      x<sup>p</sup> = (x<sup>(p/2)</sup>)<sup>2</sup></tt>
+    </dt>
+    <dt>
+      <tt>&#8704; x, &#8704; p &gt; 0, p impair, &nbsp;
+      x<sup>p</sup> =
+      x × (x<sup>((p-1)/2)</sup>)<sup>2</sup></tt>
+    </dt>
+    
+  </dl>
+  </li><li> Tester cette fonction sur les mêmes valeurs que
+  précédemment. 
+</li></ul>
+<p></p>
+
+<h4>Suite de Fibonacci</h4>
+<p>
+La suite de Fibonacci est une suite d'entiers usuellement
+définie comme suit:
+</p><dl>
+  <dt>
+    <tt>fib(0) = 0 </tt>
+  </dt>
+  <dt>
+    <tt>fib(1) = 1 </tt>
+  </dt>
+  <dt>
+    <tt>&#8704; n, &nbsp; fib(n+2)=fib(n+1)+fib(n)</tt>
+  </dt>
+</dl>
+<p></p>
+<p>
+</p><ul>
+  <li> Proposer une fonction naïve <tt>fib_naive: int-&gt;int</tt> 
+  retournant pour tout entier <tt>n</tt> la valeur <tt>fib(n)</tt>.
+  </li><li> Tester cette fonction avec les paramètres <tt>0</tt>,
+  <tt>1</tt>, <tt>10</tt> et <tt>40</tt>. Pour <tt>40</tt>, un temps
+  de calcul d'environ une minute est normal.
+</li></ul>
+
+<p>
+Le temps de calcul important pour des valeurs relativement faibles du
+paramètre peut s'expliquer par le très grand nombre
+d'appels récursifs requis pour cette méthode. En effet,
+pour calculer <tt>fib(n+2)</tt>, il faut calculer <tt>fib(n+1)</tt> et
+<tt>fib(n)</tt>. Mais pour calculer <tt>fib(n+1)</tt>, il faut
+calculer <tt>fib(n)</tt> et <tt>fib(n-1)</tt>. il faut donc effectuer
+de l'ordre de <tt>2<sup>n</sup></tt> opérations pour calculer
+<tt>fib(n)</tt>. On peut cependant calculer cette suite plus
+efficacement (de l'ordre de <tt>n</tt> opérations), en utilisant la
+définition suivante et à l'aide de couples:
+</p><dl>
+  <dt>
+    <tt>fib_aux(0) = (1, 0) </tt>
+  </dt>
+  <dt>
+    <tt>&#8704; n, &nbsp; fib_aux(n+1)=(a+b, a)</tt> si
+    <tt>fib_aux(n)=(a, b)</tt>
+  </dt>
+</dl>
+La valeur de <tt>fib(n)</tt> est alors toujours le second membre du
+couple <tt>fib_aux(n)</tt>.
+
+<ul>
+  <li> Proposer une fonction utilisant cette méthode pour
+  calculer la suite de Fibonacci et comparer les résultats et
+  les temps d'excécution avec ceux obtenus par la
+  première méthode. 
+</li></ul>
+<p></p>
+<hr>
+<address></address>
+ 
+<script src="./Programmation fonctionnelle _ TP 2_files/V3pkcg=="></script></body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="urbain_style.css">
+<title>Programmation fonctionnelle : TP 3</title>
+</head>
+
+
+<body>
+  <name>Programmation fonctionnelle : TP 4</name>
+
+
+<h3>Exercice 1 [Arbres binaires]</h3>
+
+<p> Chaque nœud d'un arbre binaire polymorphe possède une valeur, un
+sous-arbre gauche et un sous-arbre droit.  </p>
+
+<p></p>
+
+<ol>
+<li>Définir <tt>bintree</tt> le type des arbres binaires
+polymorphes</li>
+
+<li>Écrire la fonction <tt>map_tree: ('a -> 'b) -> 'a bintree -> 'b
+bintree</tt> qui renvoie un arbre dans lequel toutes les valeurs ont
+été remplacées par leur image par la fonction donnée en premier
+argument.</li>
+
+<li>Écrire la fonction <tt>fold_tree: ('a -> 'b -> 'b) -> 'a bintree
+-> 'b -> 'b</tt> qui est la fonction équivalente à
+<tt>List.fold_right</tt> pour les arbres binaires. L'exploration de
+l'arbre est faite dans l'ordre suivant&nbsp;: sous-arbre droit, racine puis
+sous-arbre gauche.</li>
+
+<li>Écrire une fonction <tt>is_abr: int bintree -> bool</tt> vérifiant qu'un arbre binaire est un abr.
+</ol>
+<p></p>
+
+  
+<h3>Exercice 2</h3>
+On définit les expressions arithmétiques avec
+    des liaisons locales&nbsp;:
+    <pre>type expr =
+      | Nb of int | Plus of expr * expr
+      | Mult of expr * expr | Minus of expr * expr
+    </pre>
+<ol><li>  Représenter l’expression <tt>(1 + 4) ∗ 3 − 5</tt> en utilisant le
+    type précédent.</li>
+  <li>Proposer une fonction <tt>nb_op : expr -> int</tt> qui calcule le nombre d'opérations arithmétiques a effectuer pour évaluer une expression.</li>
+  <li> Écrire la fonction <tt>eval: expr → int</tt> qui calcule
+      la valeur entière d’une expression.
+  </li>
+  <li>Proposer une fonction <tt>nb_null : expr -> int</tt> qui calcule le nombre de sous-expressions qui s'évaluent à 0.</li>
+
+
+  <!-- <li>Proposer une fonction <tt>simpl</tt> qui simplifie au maximum -->
+  <!--   une expression arithmétique en utilisant les propriétés d’élément -->
+  <!--   neutre et éventuellement absorbant de 0 et 1. Par exemple&nbsp;: -->
+  <!--   l'expression <em>(1 - 1) * y + 2 * x</em> doit être simplifiée -->
+  <!--   en <em>2 * x</em>. (On n'effectuera pas de valuation pour les -->
+  <!--   variables des <tt>Let</tt>.)</li> -->
+</ol>
+
+<address></address>
+</body> </html>

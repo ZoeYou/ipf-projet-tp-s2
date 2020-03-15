@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+   <META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <link rel="stylesheet" type="text/css"
+   href="http://urbain_style.css">
+   <TITLE>TP1 Prog. fonctionnelle
+   </TITLE>
+</HEAD>
+<body><DIV id="wholepage">
+</p>
+<name>
+Programmation fonctionnelle, TP1
+</name>
+<br>
+
+
+<h3>Démarche</h3>
+<p>
+Les exercices sont à faire dans la boucle d'interaction ; ils doivent
+également être compilés en byte code ou en code natif (dans ce cas ne pas essayer
+d'interagir, donner des valeurs en dur dans le code).
+<ul> 
+  <li>Bytecode : <tt>ocamlc</tt> <em>[source].ml</em> <tt>-o</tt> <em>[exec]</em>
+  <li>Natif : <tt>ocamlopt</tt> <em>[source].ml</em> <tt>-o</tt> <em>[exec]</em>
+</ul>
+</p>
+<p>
+
+  On remarque que l'exécution d'un objet natif n'affiche rien, il faut
+  donc introduire quelques primitives d'affichage.
+<p>
+Pour les entrées/sorties: vous disposez des fonction Format.printf (ou Printf.printf)  pour les sorties. Son fonctionnement est très similaire à celui de son homologue en C mais quelques améliorations sont disponibles. Vous trouverez une documentation sur cette fonction (et ses dérivées) <a href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/Format.html">ici</a>.
+<p/>
+
+
+
+  Essayer quelques exemples... Comment utiliser les affichages dans une
+  fonction ? Eh bien on peut les voir comme des déclarations locales
+  anonymes par exemple ; c'est ce qu'on utilisera <em>dans un premier temps</em>.
+<p/>
+<p>
+Toutes les fonctions doivent être accompagnées de tests pertinents et
+de commentaires.
+</p>
+
+
+<h3>Exercices</h3>
+
+La bibliothèque de floats d'ocaml contient la plupart des fonctions
+trigonométriques : <tt>cos, sin, tan, acos, asin, atan, cosh</tt>...
+
+<ol>
+<li> Calculer (et afficher) une valeur approchée de &pi; à l'aide de la fonction
+  arctangente.
+
+<li> Calculer le volume d'une sphère en fonction d'un rayon passé en
+  paramètre.
+
+<li> Une nouvelle fonction arithmétique : <tt>mod</tt>
+  <ol>
+    <li> Proposer une fonction qui s'évalue à <tt>true</tt> si son
+      paramètre est pair, à <tt>false</tt> si son paramètre est impair.
+    <li> Proposer une fonction qui affiche <tt>Pair</tt> si son
+      paramètre est pair, <tt>Impair</tt> si son paramètre est impair.
+    <li> Proposer une fonction qui
+      affiche <tt>L'entier </tt> <em>n</em> <tt>est pair.</tt> si son
+      paramètre <em>n</em> est pair, etc.    
+  </ol>
+  
+<li> Proposer une fonction qui, sur la donnée de trois entier
+  c<sub>1</sub>, c<sub>2</sub> et h, teste s'ils peuvent représenter
+  les longueurs des côtés d'un triangle rectange d'hypothénuse de
+  longueur h.
+
+<li> Proposer une fonction qui, sur la donnée de trois entier
+  c<sub>1</sub>, c<sub>2</sub> et c<sub>3</sub>, teste s'ils peuvent représenter
+  les longueurs des côtés d'un triangle rectange.
+
+<li> Proposer une fonction qui, sur la donnée d'un pas <em>dx</em>, d'une fonction
+  et d'un point <em>x</em>, calcule une approximation de la dérivée de la
+  fonction en ce point.
+
+<li> Proposer une fonction qui, sur la donnée de deux
+  fonctions <em>f</em> et  <em>g</em>, retourne la fonction
+  composée <em>f</em>&nbsp;&#9900;&nbsp;<em>g</em>.
+</ol>
+<hr noshade>
+</body>
+</html>
+
+
+
+
+
+
